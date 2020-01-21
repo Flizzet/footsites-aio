@@ -1,0 +1,80 @@
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+  
+    &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 50vh;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    cursor: default;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all .3s .2s;
+  }
+  
+  &:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  &:target &__content {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  &__close-button {
+    font-size: 4em;
+    line-height: 50%;
+    text-decoration: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #333;
+  }
+}
+
+
+.btn:link,
+.btn:visited {
+  margin-top: 40px;
+  display: inline-block;
+  padding: 13px 40px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: all .2s;
+  background-color: #fff;
+  color: #000;
+  font-family: monospace;
+  font-size: 1.8em;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+</style>

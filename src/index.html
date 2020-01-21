@@ -1,0 +1,119 @@
+<html data-ng-app="KongDash" lang="en">
+<head><meta charset="UTF-8" />
+<meta name=viewport content="width=device-width, initial-scale=1"/>
+<title>Footsites All in One</title>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+    </style>
+<link rel="stylesheet" href="css/roboto.css" />
+<link rel="stylesheet" href="css/material-icons.css" />
+<link rel="stylesheet" href="css/animations.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/default-dark-theme.css" />
+<link rel="stylesheet" href="css/sidenav.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="index.css">
+
+</head>
+<body class="body">
+
+<div class="app-layout hidden">
+<aside class="drawer">
+    <nav class="f-sidenav">
+        <div class="f-sidenav-brand">
+            <img src="resources/icons/logo-128-128.png" alt="">
+        </div>
+        <div class="f-sidenav-links f-column">
+            <a class="f-sidenav-link active"
+                data-ng-href="#!/api">
+                <i class="f-sidenav-icon tasks-btn"></i>
+            </a>
+
+            <a class="f-sidenav-link"
+                data-ng-href="#!/plugins">
+                <i class="f-sidenav-icon profiles-btn"></i>
+            </a>
+
+            <a class="f-sidenav-link">
+                <i class="f-sidenav-icon proxies-btn"></i>
+            </a>
+
+            <a class="f-sidenav-link">
+                <i class="f-sidenav-icon settings-btn"></i>
+            </a>
+        </div>
+    </nav>
+    <!-- <div class="icon"></div> -->
+    <!-- <nav class="navigation">
+        <a class="navigation__link" data-ng-href="#!/api"><p><i class="tasks-btn"></i></p> <p>Tasks</p></a>
+        <a class="navigation__link" data-ng-href="#!/plugins"><p><i class="profiles-btn"></i></p> <p>Profile</p></a>
+        <a class="navigation__link" data-ng-href="#!/certificates"><p><i class="proxies-btn"></i></p><p>Proxies</p></a>
+        <a class="navigation__link" data-ng-href="#!/upstreams"><p><i class="settings-btn"></i></p><p>Settings</p></a>
+        
+
+    </nav> -->
+</aside>
+
+<main class="content">
+    <header class="content__header" data-ng-controller="HeaderController">
+        <span class="navigate" data-ng-if="viewFactory.prevUrl">
+            <a href="{{viewFactory.prevUrl}}" title="Previous"><i class="material-icons">keyboard_arrow_left</i></a>
+        </span>
+        <span class="title">{{viewFactory.title}}</span>
+        <div class="actions">
+            <button data-ng-if="viewFactory.deleteAction" data-target="{{viewFactory.deleteAction.target}}" data-url="{{viewFactory.deleteAction.url}}" data-redirect="{{viewFactory.deleteAction.redirect || viewFactory.prevUrl}}" type="button" class="btn danger delete">Delete</button>
+        </div>
+        <img class="profile-pic"><h1 class="username">Pizzathehut#0001</h1>
+    </header>
+
+</main>
+</div>
+
+<script type="text/javascript">
+if (typeof module === 'object') {
+    window.module = module;
+    module = undefined;
+}
+
+const {ipcRenderer} = require('electron');
+var kongConfig    = ipcRenderer.sendSync('get-config', 'kong');
+var appConfig     = ipcRenderer.sendSync('get-config', 'app');
+
+var ngDependency  = ['ngRoute'];
+</script>
+
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/angular-animate.min.js"></script>
+<script type="text/javascript" src="js/angular-base64.min.js"></script>
+<script type="text/javascript" src="scripts/kongdash-app.js"></script>
+<script type="text/javascript" src="js/Chart.bundle.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js.map"></script>
+
+<script type="text/javascript" src="scripts/app-index.js"></script>
+
+<script type="text/javascript" src="controllers/header.js"></script>
+<script type="text/javascript" src="controllers/footer.js"></script>
+<script type="text/javascript" src="controllers/dashboard.js"></script>
+<script type="text/javascript" src="controllers/api-list.js"></script>
+<script type="text/javascript" src="controllers/api-edit.js"></script>
+<script type="text/javascript" src="controllers/plugin-edit.js"></script>
+<script type="text/javascript" src="controllers/consumer-list.js"></script>
+<script type="text/javascript" src="controllers/consumer-edit.js"></script>
+<script type="text/javascript" src="controllers/plugin-list.js"></script>
+<script type="text/javascript" src="controllers/cluster-list.js"></script>
+<script type="text/javascript" src="controllers/certificate-list.js"></script>
+<script type="text/javascript" src="controllers/certificate-edit.js"></script>
+<script type="text/javascript" src="controllers/upstream-list.js"></script>
+<script type="text/javascript" src="controllers/upstream-edit.js"></script>
+<script type="text/javascript" src="controllers/settings.js"></script>
+
+<script type="text/javascript">
+(function (angular) {
+    angular.element('.app-layout').fadeIn({ duration: 1000 });
+})(window.angular);
+</script>
+</body>
+</html>
