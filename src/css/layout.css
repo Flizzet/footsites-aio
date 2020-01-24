@@ -248,9 +248,7 @@ form.form .input-control {
 
 form.form div.input-control label.field-label { margin-bottom: 5px; }
     form.form div.input-control label.field-label:last-child { margin-bottom: 0; }
-a {
-  z-index: 98999989989998998989;
-}
+
 input[type=text],
 input[type=number],
 input[type=password],
