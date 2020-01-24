@@ -23,7 +23,7 @@ let startMainWindow = function () {
         minWidth: 900,
         icon: absPath + 'src/resources/icons/logo-256x256.png'
     });
-    mainWindow.loadURL('file://' + absPath + '/src/initialize.html');
+    mainWindow.loadURL('file://' + absPath + '/src/dashboard.html');
 
     mainWindow.webContents.openDevTools();
 
