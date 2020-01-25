@@ -1,6 +1,6 @@
 {
-  "name": "footsite_botforge",
-  "productName": "footsite_botforge",
+  "name": "my-new-app",
+  "productName": "my-new-app",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
@@ -24,7 +24,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "footsite_botforge"
+            "name": "my_new_app"
           }
         },
         {
